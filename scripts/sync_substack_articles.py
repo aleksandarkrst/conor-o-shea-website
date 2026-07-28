@@ -22,7 +22,19 @@ WORDS_PER_MINUTE = 200
 # Substack serves RSS at /feed and 403s bot-like requests to the plain
 # publication homepage, so normalize a pasted-in homepage URL here rather
 # than fail confusingly at fetch time.
-USER_AGENT = "Mozilla/5.0 (compatible; conorosheafitness-articles-sync/1.0; +https://conorosheafitness.com)"
+#
+# Substack's edge (Fastly) also 403s plain "compatible; my-bot/1.0"
+# User-Agents on /feed itself, even though the feed is public — so we
+# present a full, ordinary browser header set instead of identifying
+# ourselves as a bot.
+REQUEST_HEADERS = {
+    "User-Agent": (
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+        "(KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"
+    ),
+    "Accept": "application/rss+xml, application/xml;q=0.9, */*;q=0.8",
+    "Accept-Language": "en-US,en;q=0.9",
+}
 
 
 def normalize_feed_url(url):
@@ -35,7 +47,7 @@ def normalize_feed_url(url):
 
 
 def fetch_feed(url):
-    req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
+    req = urllib.request.Request(url, headers=REQUEST_HEADERS)
     with urllib.request.urlopen(req, timeout=30) as resp:
         return resp.read()
 
