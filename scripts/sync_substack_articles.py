@@ -8,6 +8,7 @@ import html
 import os
 import re
 import sys
+import urllib.error
 import urllib.request
 import xml.etree.ElementTree as ET
 from email.utils import parsedate_to_datetime
@@ -18,10 +19,23 @@ START_MARKER = "<!-- SUBSTACK_ARTICLES_START -->"
 END_MARKER = "<!-- SUBSTACK_ARTICLES_END -->"
 CONTENT_NS = "{http://purl.org/rss/1.0/modules/content/}"
 WORDS_PER_MINUTE = 200
+# Substack serves RSS at /feed and 403s bot-like requests to the plain
+# publication homepage, so normalize a pasted-in homepage URL here rather
+# than fail confusingly at fetch time.
+USER_AGENT = "Mozilla/5.0 (compatible; conorosheafitness-articles-sync/1.0; +https://conorosheafitness.com)"
+
+
+def normalize_feed_url(url):
+    url = url.strip().rstrip("/")
+    if not url:
+        return url
+    if url.endswith("/feed") or url.endswith(".xml") or "/feed?" in url:
+        return url
+    return f"{url}/feed"
 
 
 def fetch_feed(url):
-    req = urllib.request.Request(url, headers={"User-Agent": "conorosheafitness-articles-sync/1.0"})
+    req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
     with urllib.request.urlopen(req, timeout=30) as resp:
         return resp.read()
 
@@ -84,7 +98,12 @@ def main():
         print("SUBSTACK_FEED_URL is not set, skipping sync.", file=sys.stderr)
         return 0
 
-    xml_bytes = fetch_feed(FEED_URL)
+    feed_url = normalize_feed_url(FEED_URL)
+    try:
+        xml_bytes = fetch_feed(feed_url)
+    except urllib.error.HTTPError as e:
+        print(f"Failed to fetch {feed_url}: HTTP {e.code} {e.reason}", file=sys.stderr)
+        return 1
     items = parse_items(xml_bytes)
     # Substack feeds are newest-first already; keep it that way explicitly.
     items.sort(key=lambda i: parsedate_to_datetime(i["pub_date"]), reverse=True)
