@@ -16,6 +16,7 @@ import json
 import os
 import re
 import sys
+import time
 import urllib.error
 import urllib.parse
 import urllib.request
@@ -103,14 +104,26 @@ def parse_rss_items(xml_bytes):
     return items
 
 
-def fetch_via_rss2json(feed_url):
+def fetch_via_rss2json(feed_url, attempts=3, backoff_seconds=3):
     params = {"rss_url": feed_url}
     if RSS2JSON_API_KEY:
         params["api_key"] = RSS2JSON_API_KEY
     url = "https://api.rss2json.com/v1/api.json?" + urllib.parse.urlencode(params)
     req = urllib.request.Request(url, headers={"User-Agent": REQUEST_HEADERS["User-Agent"]})
-    with urllib.request.urlopen(req, timeout=30) as resp:
-        data = json.loads(resp.read().decode("utf-8"))
+
+    last_error = None
+    for attempt in range(1, attempts + 1):
+        try:
+            with urllib.request.urlopen(req, timeout=30) as resp:
+                data = json.loads(resp.read().decode("utf-8"))
+            break
+        except (urllib.error.HTTPError, urllib.error.URLError) as e:
+            last_error = e
+            print(f"rss2json attempt {attempt}/{attempts} failed: {e}", file=sys.stderr)
+            if attempt < attempts:
+                time.sleep(backoff_seconds * attempt)
+    else:
+        raise last_error
 
     if data.get("status") != "ok":
         raise RuntimeError(f"rss2json returned an error: {data.get('message', data)}")
