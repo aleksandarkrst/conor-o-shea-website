@@ -68,7 +68,7 @@ def build_featured_card(item):
         '<section class="articles-featured-section">\n'
         '  <div class="wrap">\n'
         f'    <a class="article-featured" href="{link}" target="_blank" rel="noopener">\n'
-        '      <p class="article-featured-eyebrow">Latest essay</p>\n'
+        '      <p class="article-featured-eyebrow">Latest post</p>\n'
         f'      <h2 class="article-featured-title">{title}</h2>\n'
         '      <div class="article-featured-meta">\n'
         f'        <span class="article-featured-date">{date}</span>\n'
@@ -108,7 +108,7 @@ def build_more_section(rest_items):
     return (
         '\n<section class="articles-more-section">\n'
         '  <div class="wrap">\n'
-        '    <p class="articles-more-label">More essays</p>\n'
+        '    <p class="articles-more-label">More posts</p>\n'
         '    <div class="articles-list">\n'
         f"{rows}\n"
         "    </div>\n"
@@ -225,6 +225,9 @@ def main():
         return 1
 
     items.sort(key=lambda i: i["pub_dt"], reverse=True)
+    print(f"Feed returned {len(items)} item(s):", file=sys.stderr)
+    for item in items:
+        print(f"  - {item['pub_dt'].date()}  {item['title']}", file=sys.stderr)
     block = build_articles_block(items)
 
     with open(ARTICLES_HTML, "r", encoding="utf-8") as f:
