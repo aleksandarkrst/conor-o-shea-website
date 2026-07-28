@@ -59,24 +59,79 @@ def read_minutes(content):
     return max(1, round(len(words) / WORDS_PER_MINUTE))
 
 
-def build_row(title, link, pub_dt, content):
-    date = pub_dt.strftime("%d %b %Y")
-    minutes = read_minutes(content)
-    title = html.escape(title.strip())
-    link = html.escape(link.strip(), quote=True)
+def build_featured_card(item):
+    title = html.escape(item["title"].strip())
+    link = html.escape(item["link"].strip(), quote=True)
+    date = item["pub_dt"].strftime("%d %b %Y")
+    minutes = read_minutes(item["content"])
+    return (
+        '<section class="articles-featured-section">\n'
+        '  <div class="wrap">\n'
+        f'    <a class="article-featured" href="{link}" target="_blank" rel="noopener">\n'
+        '      <p class="article-featured-eyebrow">Latest essay</p>\n'
+        f'      <h2 class="article-featured-title">{title}</h2>\n'
+        '      <div class="article-featured-meta">\n'
+        f'        <span class="article-featured-date">{date}</span>\n'
+        '        <span class="article-featured-dot"></span>\n'
+        f'        <span class="article-featured-read">{minutes} min read</span>\n'
+        '        <span class="article-featured-link">Read on Substack &rarr;</span>\n'
+        "      </div>\n"
+        "    </a>\n"
+        "  </div>\n"
+        "</section>"
+    )
+
+
+def build_more_row(item, index):
+    title = html.escape(item["title"].strip())
+    link = html.escape(item["link"].strip(), quote=True)
+    date = item["pub_dt"].strftime("%d %b %Y")
+    minutes = read_minutes(item["content"])
     return (
         f'      <a class="article-row" href="{link}" target="_blank" rel="noopener">\n'
-        f'        <span class="article-date">{date}</span>\n'
+        f'        <span class="article-index">{index:02d}</span>\n'
         f'        <span class="article-title">{title}</span>\n'
-        f'        <span class="article-read">{minutes} min read</span>\n'
-        f"      </a>"
+        '        <span class="article-meta">\n'
+        f'          <span class="article-date">{date}</span>\n'
+        f'          <span class="article-read">{minutes} min read</span>\n'
+        "        </span>\n"
+        "      </a>"
+    )
+
+
+def build_more_section(rest_items):
+    if not rest_items:
+        return ""
+    rows = "\n".join(
+        build_more_row(item, index) for index, item in enumerate(rest_items, start=2)
+    )
+    return (
+        '\n<section class="articles-more-section">\n'
+        '  <div class="wrap">\n'
+        '    <p class="articles-more-label">More essays</p>\n'
+        '    <div class="articles-list">\n'
+        f"{rows}\n"
+        "    </div>\n"
+        "  </div>\n"
+        "</section>"
+    )
+
+
+def build_empty_state():
+    return (
+        '<section class="articles-featured-section">\n'
+        '  <div class="wrap">\n'
+        '    <p class="empty-note">Nothing published yet. Check back soon.</p>\n'
+        "  </div>\n"
+        "</section>"
     )
 
 
 def build_articles_block(items):
     if not items:
-        return '      <p class="empty-note">Nothing published yet. Check back soon.</p>'
-    return "\n".join(build_row(**item) for item in items)
+        return build_empty_state()
+    featured, rest = items[0], items[1:]
+    return build_featured_card(featured) + build_more_section(rest)
 
 
 def fetch_direct(url):
@@ -182,7 +237,7 @@ def main():
     pattern = re.compile(
         re.escape(START_MARKER) + r".*?" + re.escape(END_MARKER), re.DOTALL
     )
-    new_page = pattern.sub(f"{START_MARKER}\n{block}\n      {END_MARKER}", page)
+    new_page = pattern.sub(f"{START_MARKER}\n{block}\n{END_MARKER}", page)
 
     if new_page != page:
         with open(ARTICLES_HTML, "w", encoding="utf-8") as f:
