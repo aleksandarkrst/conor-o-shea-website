@@ -225,6 +225,9 @@ def main():
         return 1
 
     items.sort(key=lambda i: i["pub_dt"], reverse=True)
+    print(f"Feed returned {len(items)} item(s):", file=sys.stderr)
+    for item in items:
+        print(f"  - {item['pub_dt'].date()}  {item['title']}", file=sys.stderr)
     block = build_articles_block(items)
 
     with open(ARTICLES_HTML, "r", encoding="utf-8") as f:
