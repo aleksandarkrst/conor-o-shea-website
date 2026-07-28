@@ -1,0 +1,27 @@
+{
+  "name": "conor-o-shea-website",
+  "version": "1.0.0",
+  "description": "Conor O'Shea Fitness - Low Back Pain Rehab coaching website",
+  "private": true,
+  "scripts": {
+    "build": "echo 'No build step required for static site'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aleksandarkrst/conor-o-shea-website.git"
+  },
+  "keywords": [
+    "fitness",
+    "low-back-pain",
+    "rehab"
+  ],
+  "author": "Conor O'Shea",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aleksandarkrst/conor-o-shea-website/issues"
+  },
+  "homepage": "https://github.com/aleksandarkrst/conor-o-shea-website#readme",
+  "dependencies": {
+    "@vercel/speed-insights": "^2.0.0"
+  }
+}
