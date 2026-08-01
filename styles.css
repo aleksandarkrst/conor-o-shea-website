@@ -113,6 +113,8 @@ section { }
 .method-row .num { font-family: 'Anton', sans-serif; font-size: 46px; color: var(--accent); }
 .method-row h3 { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 30px; text-transform: uppercase; margin: 0 0 8px; }
 .method-row p { font-size: 16px; color: var(--muted); margin: 0; max-width: 680px; line-height: 1.6; }
+.method-row ul { margin: 12px 0 0; padding-left: 18px; max-width: 680px; color: var(--muted); font-size: 15px; line-height: 1.6; }
+.method-row ul li { margin-bottom: 4px; }
 
 /* Results */
 .results h2 { margin-bottom: 44px; }
@@ -131,6 +133,7 @@ section { }
 .masonry { column-count: 3; column-gap: 24px; margin-top: 32px; }
 .masonry figure { break-inside: avoid; margin: 0 0 24px; background: #fff; border-radius: 3px; overflow: hidden; }
 .masonry img { width: 100%; }
+.masonry figcaption { padding: 12px 14px; background: var(--panel2); color: var(--muted); font-size: 13px; line-height: 1.5; }
 .results .btn-outline { margin-top: 32px; }
 
 /* Retreat band */
@@ -202,6 +205,8 @@ section { }
 .faq-item { padding: 28px 0; border-top: 1px solid var(--rule); }
 .faq-item h3 { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 22px; text-transform: uppercase; margin: 0 0 12px; }
 .faq-item p { font-size: 15.5px; line-height: 1.6; color: var(--muted); margin: 0; }
+.faq-item ul { margin: 8px 0 0; padding-left: 18px; color: var(--muted); font-size: 15.5px; line-height: 1.6; }
+.faq-item ul li { margin-bottom: 4px; }
 
 /* Final CTA (single dominant action, Assessment primary, Book a Call subordinate) */
 .final-cta { background: var(--panel); padding: 96px 40px; text-align: center; }

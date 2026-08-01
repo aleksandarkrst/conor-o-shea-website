@@ -63,20 +63,23 @@ def build_featured_card(item):
     title = html.escape(item["title"].strip())
     link = html.escape(item["link"].strip(), quote=True)
     date = item["pub_dt"].strftime("%d %b %Y")
+    iso_date = item["pub_dt"].strftime("%Y-%m-%d")
     minutes = read_minutes(item["content"])
     return (
         '<section class="articles-featured-section">\n'
         '  <div class="wrap">\n'
-        f'    <a class="article-featured" href="{link}" target="_blank" rel="noopener">\n'
-        '      <p class="article-featured-eyebrow">Latest post</p>\n'
-        f'      <h2 class="article-featured-title">{title}</h2>\n'
-        '      <div class="article-featured-meta">\n'
-        f'        <span class="article-featured-date">{date}</span>\n'
-        '        <span class="article-featured-dot"></span>\n'
-        f'        <span class="article-featured-read">{minutes} min read</span>\n'
-        '        <span class="article-featured-link">Read on Substack &rarr;</span>\n'
-        "      </div>\n"
-        "    </a>\n"
+        "    <article>\n"
+        f'      <a class="article-featured" href="{link}" target="_blank" rel="noopener">\n'
+        '        <p class="article-featured-eyebrow">Latest post</p>\n'
+        f'        <h2 class="article-featured-title">{title}</h2>\n'
+        '        <div class="article-featured-meta">\n'
+        f'          <time class="article-featured-date" datetime="{iso_date}">{date}</time>\n'
+        '          <span class="article-featured-dot"></span>\n'
+        f'          <span class="article-featured-read">{minutes} min read</span>\n'
+        '          <span class="article-featured-link">Read on Substack &rarr;</span>\n'
+        "        </div>\n"
+        "      </a>\n"
+        "    </article>\n"
         "  </div>\n"
         "</section>"
     )
@@ -86,16 +89,19 @@ def build_more_row(item, index):
     title = html.escape(item["title"].strip())
     link = html.escape(item["link"].strip(), quote=True)
     date = item["pub_dt"].strftime("%d %b %Y")
+    iso_date = item["pub_dt"].strftime("%Y-%m-%d")
     minutes = read_minutes(item["content"])
     return (
-        f'      <a class="article-row" href="{link}" target="_blank" rel="noopener">\n'
-        f'        <span class="article-index">{index:02d}</span>\n'
-        f'        <span class="article-title">{title}</span>\n'
-        '        <span class="article-meta">\n'
-        f'          <span class="article-date">{date}</span>\n'
-        f'          <span class="article-read">{minutes} min read</span>\n'
-        "        </span>\n"
-        "      </a>"
+        "      <article>\n"
+        f'        <a class="article-row" href="{link}" target="_blank" rel="noopener">\n'
+        f'          <span class="article-index">{index:02d}</span>\n'
+        f'          <span class="article-title">{title}</span>\n'
+        '          <span class="article-meta">\n'
+        f'            <time class="article-date" datetime="{iso_date}">{date}</time>\n'
+        f'            <span class="article-read">{minutes} min read</span>\n'
+        "          </span>\n"
+        "        </a>\n"
+        "      </article>"
     )
 
 
@@ -127,11 +133,42 @@ def build_empty_state():
     )
 
 
+def build_articles_jsonld(items):
+    entries = []
+    for item in items:
+        entries.append({
+            "@type": "BlogPosting",
+            "headline": item["title"].strip(),
+            "url": item["link"].strip(),
+            "datePublished": item["pub_dt"].strftime("%Y-%m-%d"),
+            "timeRequired": f"PT{read_minutes(item['content'])}M",
+            "author": {"@type": "Person", "name": "Conor O'Shea"},
+            "publisher": {"@type": "Organization", "name": "Conor O'Shea Fitness"},
+        })
+    data = {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": i, "item": entry}
+            for i, entry in enumerate(entries, start=1)
+        ],
+    }
+    return (
+        '\n<script type="application/ld+json">\n'
+        + json.dumps(data, indent=2)
+        + "\n</script>"
+    )
+
+
 def build_articles_block(items):
     if not items:
         return build_empty_state()
     featured, rest = items[0], items[1:]
-    return build_featured_card(featured) + build_more_section(rest)
+    return (
+        build_featured_card(featured)
+        + build_more_section(rest)
+        + build_articles_jsonld(items)
+    )
 
 
 def fetch_direct(url):
