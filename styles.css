@@ -116,6 +116,15 @@ section { }
 .method-row ul { margin: 12px 0 0; padding-left: 18px; max-width: 680px; color: var(--muted); font-size: 15px; line-height: 1.6; }
 .method-row ul li { margin-bottom: 4px; }
 
+/* Trust signals */
+.trust-signals h2 { margin-bottom: 28px; }
+.trust-signals ul { display: flex; flex-wrap: wrap; gap: 14px 36px; list-style: none; margin: 0 0 40px; padding: 0; }
+.trust-signals ul li { font-size: 16px; color: var(--muted); }
+.trust-signals ul li strong { color: var(--ink); font-weight: 700; }
+.trust-signals blockquote { margin: 0; padding: 32px 36px; background: var(--panel); border-left: 3px solid var(--accent); border-radius: 3px; max-width: 680px; }
+.trust-signals blockquote p { font-size: 18px; line-height: 1.6; color: var(--ink); font-style: italic; margin: 0 0 12px; }
+.trust-signals cite { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 14px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted2); font-style: normal; }
+
 /* Results */
 .results h2 { margin-bottom: 44px; }
 .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
@@ -126,7 +135,7 @@ section { }
 .play { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
 .play-circle { width: 62px; height: 62px; border-radius: 50%; background: rgba(209,96,46,.94); display: flex; align-items: center; justify-content: center; }
 .play-tri { width: 0; height: 0; border-top: 11px solid transparent; border-bottom: 11px solid transparent; border-left: 18px solid var(--paper); margin-left: 5px; }
-.result-name { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 20px; text-transform: uppercase; }
+.result-name { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 20px; text-transform: uppercase; margin: 0; }
 
 /* Chat screenshots masonry */
 .chat-label { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 22px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted2); padding-bottom: 28px; border-bottom: 1px solid var(--rule); margin-top: 72px; }
