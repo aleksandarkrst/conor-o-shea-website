@@ -22,6 +22,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 
+<!-- Warm up the connection to the booking widget's domains so the iframe starts loading sooner -->
+<link rel="preconnect" href="https://api.leadconnectorhq.com">
+<link rel="dns-prefetch" href="https://api.leadconnectorhq.com">
+<link rel="preconnect" href="https://link.msgsndr.com">
+<link rel="dns-prefetch" href="https://link.msgsndr.com">
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -44,6 +50,19 @@
   "dateModified": "2026-09-09"
 }
 </script>
+
+<!--
+  LeadConnector's standard booking-widget auto-resize script, loaded with
+  `defer` from <head> so the browser starts fetching it immediately
+  (in parallel with the rest of the page) instead of only discovering it
+  after parsing the whole body - the script itself still only runs once
+  the DOM is ready. Could not be verified against the live platform
+  (network egress to leadconnectorhq.com is blocked in this environment) -
+  this is the well-known public embed script for LeadConnector/GoHighLevel
+  booking widgets. Swap for an official embed snippet from the
+  LeadConnector dashboard if one differs.
+-->
+<script src="https://link.msgsndr.com/js/form_embed.js" type="text/javascript" defer></script>
 </head>
 <body>
 
@@ -93,15 +112,6 @@
     <a href="https://open.spotify.com/show/2gnwofsr3eItEj1TJXbmIi" target="_blank" rel="noopener">Spotify</a>
   </div>
 </footer>
-
-<!--
-  LeadConnector's standard booking-widget auto-resize script. Could not be
-  verified against the live platform (network egress to leadconnectorhq.com
-  is blocked in this environment) - this is the well-known public embed
-  script for LeadConnector/GoHighLevel booking widgets. Swap for an
-  official embed snippet from the LeadConnector dashboard if one differs.
--->
-<script src="https://link.msgsndr.com/js/form_embed.js" type="text/javascript"></script>
 
 </body>
 </html>
