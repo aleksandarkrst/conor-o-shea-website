@@ -225,6 +225,23 @@ section { }
 .cta-secondary { margin-top: 24px; font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: 14px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
 .cta-secondary:hover { color: var(--ink); }
 
+/* Booking pages (Discovery Call / Assessment Call): minimal nav + widget embed */
+.nav-minimal { justify-content: center; }
+.booking-page-head { padding-top: 72px; padding-bottom: 8px; text-align: center; }
+.booking-page-head h1 { font-size: 54px; margin-bottom: 16px; }
+.booking-page-head .lede { margin-left: auto; margin-right: auto; }
+.booking-note { max-width: 560px; margin: 0 auto 8px; text-align: center; color: var(--muted); font-size: 15px; line-height: 1.6; }
+.booking-note a { color: var(--muted); text-decoration: underline; }
+.booking-note a:hover { color: var(--ink); }
+.booking-embed-section { padding: 32px 0 64px; }
+.booking-embed { max-width: 900px; margin: 0 auto; background: var(--panel2); border-radius: 4px; overflow: hidden; }
+.booking-embed iframe { display: block; width: 100%; height: 900px; border: 0; }
+.booking-back { text-align: center; padding-bottom: 64px; }
+
+/* Booking CTA card: used instead of an iframe when a widget can't be framed */
+.booking-cta-card { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 24px; padding: 64px 32px; text-align: center; }
+.booking-cta-card p { margin: 0; max-width: 440px; color: var(--muted); font-size: 16px; line-height: 1.6; }
+
 /* Footer */
 .footer { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; max-width: 1200px; margin: 0 auto; padding: 36px 40px; border-top: 1px solid var(--rule-soft); }
 .footer span { font-size: 12px; letter-spacing: .06em; color: var(--muted2); }
@@ -254,4 +271,6 @@ section { }
   .article-row { grid-template-columns: 32px 1fr; gap: 14px; }
   .article-meta { grid-column: 1 / -1; flex-direction: row; align-items: center; gap: 10px; margin-top: 6px; }
   .subscribe-strip { padding: 28px; }
+  .booking-page-head h1 { font-size: 36px; }
+  .booking-embed iframe { height: 1100px; }
 }

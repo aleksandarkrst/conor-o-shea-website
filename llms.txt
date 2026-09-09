@@ -11,8 +11,9 @@
 - [About](https://conorosheafitness.com/about.html): Conor O'Shea's background, the L5-S1 injury story, and how the coaching program is run remotely.
 
 ## Take action
-- [Free assessment](https://lowbackassessment.conorosheafitness.com/): Free 8-10 minute online assessment of current back pain status.
-- [Book a call](https://app.aura-app.ai/conor-o-shea-fitness-ltd/assessment-call-web): Schedule a call with Conor to discuss coaching.
+- [Free assessment](https://lowbackassessment.conorosheafitness.com/): Free 8-10 minute online self-assessment quiz of current back pain status.
+- [Book a Discovery Call](https://conorosheafitness.com/discovery-call.html): Short call with Conor to talk through your back pain and see if coaching is a fit. This is the site's main "Book a Call" link.
+- [Apply to Work with Conor](https://conorosheafitness.com/assessment-call.html): Free 45-minute live assessment call with Conor, distinct from the free online self-assessment quiz above.
 
 ## Optional
 - [Substack](https://conorosheafit.substack.com/): Conor's newsletter, source for the articles page.
