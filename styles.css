@@ -65,8 +65,8 @@ a:hover { color: var(--accent-hi); }
 }
 .brand { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 21px; letter-spacing: .02em; text-transform: uppercase; color: var(--ink); }
 .brand span { color: var(--accent); }
-.nav-links { display: flex; gap: 26px; align-items: center; font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; }
-.nav-links a { color: var(--muted); }
+.nav-links { display: flex; flex-wrap: wrap; gap: 8px 26px; align-items: center; font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; }
+.nav-links a { color: var(--muted); white-space: nowrap; }
 .nav-links a:hover { color: var(--ink); }
 .nav-links .btn { color: var(--paper); }
 
@@ -253,7 +253,7 @@ section { }
 @media (max-width: 900px) {
   .wrap { padding-left: 24px; padding-right: 24px; }
   .nav { padding: 16px 24px; flex-wrap: wrap; gap: 14px; }
-  .nav-links { gap: 16px; font-size: 12px; order: 3; width: 100%; }
+  .nav-links { gap: 12px 16px; font-size: 12px; order: 3; width: 100%; flex-wrap: wrap; }
   .hero h1 { font-size: 52px; }
   .hero img { height: 70vh; }
   .proof { flex-wrap: wrap; }
