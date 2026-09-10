@@ -12,7 +12,7 @@
 
 ## Take action
 - [Free assessment](https://lowbackassessment.conorosheafitness.com/): Free 8-10 minute online self-assessment quiz of current back pain status.
-- [Book an Assessment Call / Apply to Work with Conor](https://conorosheafitness.com/assessment-call.html): Free 45-minute live assessment call with Conor, distinct from the free online self-assessment quiz above. This is the site's main "Book a Call" link.
+- [Book an Assessment Call](https://app.aura-app.ai/conor-o-shea-fitness-ltd/assessmentlink): Free 45-minute live assessment call with Conor, distinct from the free online self-assessment quiz above. This is the site's main "Book a Call" link.
 
 ## Optional
 - [Substack](https://conorosheafit.substack.com/): Conor's newsletter, source for the articles page.
