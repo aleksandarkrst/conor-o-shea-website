@@ -272,4 +272,7 @@ section { }
   .subscribe-strip { padding: 28px; }
   .booking-page-head h1 { font-size: 36px; }
   .booking-embed iframe { height: 1100px; }
+  .footer { padding: 28px 24px; }
+  .footer-links { flex-wrap: wrap; justify-content: center; gap: 10px 20px; }
+  .final-cta h2 { font-size: 34px; }
 }
