@@ -27,6 +27,7 @@ from email.utils import parsedate_to_datetime
 FEED_URL = os.environ.get("SUBSTACK_FEED_URL", "")
 RSS2JSON_API_KEY = os.environ.get("RSS2JSON_API_KEY", "")
 ARTICLES_HTML = os.path.join(os.path.dirname(__file__), "..", "articles.html")
+SITEMAP_XML = os.path.join(os.path.dirname(__file__), "..", "sitemap.xml")
 START_MARKER = "<!-- SUBSTACK_ARTICLES_START -->"
 END_MARKER = "<!-- SUBSTACK_ARTICLES_END -->"
 CONTENT_NS = "{http://purl.org/rss/1.0/modules/content/}"
@@ -249,6 +250,26 @@ def fetch_items(feed_url):
         return fetch_via_rss2json(feed_url)
 
 
+def bump_date_modified(page, today):
+    """Update articles.html's own WebPage dateModified to today.
+
+    There is exactly one "dateModified" key in articles.html (in the
+    WebPage JSON-LD block) - the per-article BlogPosting entries only
+    carry datePublished, so this substitution is unambiguous.
+    """
+    pattern = re.compile(r'("dateModified":\s*")\d{4}-\d{2}-\d{2}(")')
+    return pattern.sub(rf"\g<1>{today}\g<2>", page, count=1)
+
+
+def bump_sitemap_lastmod(sitemap_xml, today):
+    """Update sitemap.xml's <lastmod> for the articles.html <url> entry."""
+    pattern = re.compile(
+        r"(<loc>https://conorosheafitness\.com/articles\.html</loc>\s*<lastmod>)"
+        r"\d{4}-\d{2}-\d{2}(</lastmod>)"
+    )
+    return pattern.sub(rf"\g<1>{today}\g<2>", sitemap_xml, count=1)
+
+
 def main():
     if not FEED_URL:
         print("SUBSTACK_FEED_URL is not set, skipping sync.", file=sys.stderr)
@@ -280,9 +301,23 @@ def main():
     new_page = pattern.sub(f"{START_MARKER}\n{block}\n{END_MARKER}", page)
 
     if new_page != page:
+        today = datetime.utcnow().strftime("%Y-%m-%d")
+        new_page = bump_date_modified(new_page, today)
+
         with open(ARTICLES_HTML, "w", encoding="utf-8") as f:
             f.write(new_page)
-        print(f"Updated articles.html with {len(items)} article(s).")
+        print(f"Updated articles.html with {len(items)} article(s), dateModified -> {today}.")
+
+        try:
+            with open(SITEMAP_XML, "r", encoding="utf-8") as f:
+                sitemap = f.read()
+            new_sitemap = bump_sitemap_lastmod(sitemap, today)
+            if new_sitemap != sitemap:
+                with open(SITEMAP_XML, "w", encoding="utf-8") as f:
+                    f.write(new_sitemap)
+                print(f"Updated sitemap.xml lastmod for articles.html -> {today}.")
+        except FileNotFoundError:
+            print("sitemap.xml not found, skipping lastmod update.", file=sys.stderr)
     else:
         print("articles.html already up to date.")
 
