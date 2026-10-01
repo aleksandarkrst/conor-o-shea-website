@@ -7,7 +7,7 @@
 - [Method](https://conorosheafitness.com/#method): The three phases of the program - Reset (drop load, calm the system), Restore (rebuild movement capacity), Reinforce (return to normal training).
 - [FAQ](https://conorosheafitness.com/#faq): Answers on remote coaching, non-specific back pain, program length, and training with a disc injury.
 - [Client stories](https://conorosheafitness.com/testimonials.html): Video client interviews, podcast episodes, and client message screenshots.
-- [Articles](https://conorosheafitness.com/articles.html): Posts synced from Conor's Substack newsletter, with a link to subscribe.
+- [Articles](https://conorosheafitness.com/articles.html): Full-text articles synced from Conor's Substack newsletter, each with its own on-site page, plus a link to subscribe.
 - [About](https://conorosheafitness.com/about.html): Conor O'Shea's background, the L5-S1 injury story, and how the coaching program is run remotely.
 
 ## Take action
