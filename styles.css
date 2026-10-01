@@ -104,6 +104,23 @@ section { }
 .prose { font-size: 17px; line-height: 1.7; color: #c3bcae; }
 .prose p { margin: 0 0 18px; }
 .prose p:last-child { margin-bottom: 0; }
+.prose h2 { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 28px; text-transform: none; letter-spacing: normal; color: var(--ink); margin: 40px 0 16px; }
+.prose h3 { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 22px; text-transform: none; letter-spacing: normal; color: var(--ink); margin: 32px 0 14px; }
+.prose a { color: var(--accent-2); text-decoration: underline; }
+.prose a:hover { color: var(--accent-hi); }
+.prose ul, .prose ol { margin: 0 0 18px; padding-left: 22px; }
+.prose li { margin-bottom: 8px; }
+.prose blockquote { margin: 24px 0; padding: 16px 24px; border-left: 3px solid var(--accent); background: var(--panel2); color: var(--ink); font-style: italic; }
+.prose img { max-width: 100%; height: auto; border-radius: 4px; margin: 24px 0; }
+.prose figure { margin: 24px 0; }
+.prose figcaption { font-size: 14px; color: var(--muted2); text-align: center; margin-top: 8px; }
+.prose hr { border: none; border-top: 1px solid var(--rule); margin: 32px 0; }
+.prose strong { color: var(--ink); }
+
+/* Full-text article pages (generated from Substack RSS content) */
+.article-body { max-width: 720px; margin: 0 auto; }
+.article-meta-line { font-family: 'Barlow Condensed', sans-serif; font-size: 14px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted2); margin: 0 0 40px; }
+.article-substack-note { max-width: 720px; margin: 0 auto 8px; text-align: center; color: var(--muted); font-size: 15px; }
 
 /* Method */
 .method h2 { margin-bottom: 14px; }

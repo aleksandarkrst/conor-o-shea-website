@@ -29,6 +29,6 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add articles.html
+          git add articles.html articles/ sitemap.xml
           git diff --cached --quiet || git commit -m "Sync articles from Substack"
           git push
