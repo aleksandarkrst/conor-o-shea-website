@@ -3,6 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Google tag (GA4) with Consent Mode v2: analytics cookies only after the visitor accepts -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  analytics_storage: /(?:^|; )cof_consent=granted/.test(document.cookie) ? 'granted' : 'denied',
+  ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied',
+  wait_for_update: 500
+});
+gtag('js', new Date());
+gtag('config', 'G-XXXXXXXXXX');
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script src="tracking.js" defer></script>
+<!-- End Google tag -->
 <title>Book a Discovery Call | Conor O'Shea Fitness</title>
 <meta name="description" content="Book a free discovery call with Conor O'Shea to talk through your low back pain and see if coaching is the right fit.">
 <meta name="author" content="Conor O'Shea">
@@ -85,6 +100,7 @@
 <footer class="footer">
   <span>&copy; 2026 Conor O'Shea Fitness Ltd.</span>
   <div class="footer-links">
+    <button type="button" class="cof-consent-link" onclick="window.cofOpenCookieSettings && cofOpenCookieSettings()">Cookie settings</button>
     <a href="mailto:help@conorosheafitness.com">Email</a>
     <a href="https://www.instagram.com/conorosheafit/" target="_blank" rel="noopener">Instagram</a>
     <a href="https://www.youtube.com/@conorosheafit" target="_blank" rel="noopener">YouTube</a>

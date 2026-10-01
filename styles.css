@@ -245,6 +245,8 @@ section { }
 .footer-links { display: flex; gap: 24px; font-size: 12px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
 .footer-links a { color: var(--muted); }
 .footer-links a:hover { color: var(--ink); }
+.footer-links .cof-consent-link { background: none; border: 0; padding: 0; cursor: pointer; font: inherit; letter-spacing: inherit; text-transform: inherit; color: var(--muted); transition: color .2s ease; }
+.footer-links .cof-consent-link:hover { color: var(--ink); }
 
 /* Responsive */
 @media (max-width: 900px) {
