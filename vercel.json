@@ -76,7 +76,15 @@
       "destination": "/back-pain-youtube.html"
     },
     {
+      "source": "/back-pain-youtube",
+      "destination": "/back-pain-youtube.html"
+    },
+    {
       "source": "/back-pain-ig",
+      "destination": "/back-pain-instagram.html"
+    },
+    {
+      "source": "/back-pain-instagram",
       "destination": "/back-pain-instagram.html"
     },
     {
