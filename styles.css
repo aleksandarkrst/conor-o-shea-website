@@ -97,7 +97,7 @@ section { }
 .section-title { font-size: 52px; margin-bottom: 14px; }
 
 /* Story */
-.story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+.story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
 .story-img { filter: grayscale(100%); border-radius: 3px; overflow: hidden; background: var(--panel2); }
 .story-img img { width: 100%; height: auto; }
 .story h2 { font-size: 42px; line-height: 1; margin: 20px 0 24px; }
