@@ -1,17 +1,87 @@
 {
   "redirects": [
-    { "source": "/meet-conor", "destination": "/about.html", "permanent": true },
-    { "source": "/meet-conor/", "destination": "/about.html", "permanent": true },
-    { "source": "/men-coaching", "destination": "/assessment-call.html", "permanent": true },
-    { "source": "/men-coaching/", "destination": "/assessment-call.html", "permanent": true },
-    { "source": "/women-coaching", "destination": "/assessment-call.html", "permanent": true },
-    { "source": "/women-coaching/", "destination": "/assessment-call.html", "permanent": true },
-    { "source": "/book-a-call", "destination": "/assessment-call.html", "permanent": true },
-    { "source": "/book-a-call/", "destination": "/assessment-call.html", "permanent": true },
-    { "source": "/fix-route", "destination": "/assessment-call.html", "permanent": true },
-    { "source": "/fix-route/", "destination": "/assessment-call.html", "permanent": true },
-    { "source": "/2017/06/03/advice-to-your-20-year-old-self", "destination": "/about.html", "permanent": true },
-    { "source": "/2017/06/03/advice-to-your-20-year-old-self/", "destination": "/about.html", "permanent": true },
-    { "source": "/index.html", "destination": "/", "permanent": true }
+    {
+      "source": "/meet-conor",
+      "destination": "/about.html",
+      "permanent": true
+    },
+    {
+      "source": "/meet-conor/",
+      "destination": "/about.html",
+      "permanent": true
+    },
+    {
+      "source": "/men-coaching",
+      "destination": "/assessment-call.html",
+      "permanent": true
+    },
+    {
+      "source": "/men-coaching/",
+      "destination": "/assessment-call.html",
+      "permanent": true
+    },
+    {
+      "source": "/women-coaching",
+      "destination": "/assessment-call.html",
+      "permanent": true
+    },
+    {
+      "source": "/women-coaching/",
+      "destination": "/assessment-call.html",
+      "permanent": true
+    },
+    {
+      "source": "/book-a-call",
+      "destination": "/assessment-call.html",
+      "permanent": true
+    },
+    {
+      "source": "/book-a-call/",
+      "destination": "/assessment-call.html",
+      "permanent": true
+    },
+    {
+      "source": "/fix-route",
+      "destination": "/assessment-call.html",
+      "permanent": true
+    },
+    {
+      "source": "/fix-route/",
+      "destination": "/assessment-call.html",
+      "permanent": true
+    },
+    {
+      "source": "/2017/06/03/advice-to-your-20-year-old-self",
+      "destination": "/about.html",
+      "permanent": true
+    },
+    {
+      "source": "/2017/06/03/advice-to-your-20-year-old-self/",
+      "destination": "/about.html",
+      "permanent": true
+    },
+    {
+      "source": "/index.html",
+      "destination": "/",
+      "permanent": true
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/back-pain",
+      "destination": "/back-pain.html"
+    },
+    {
+      "source": "/back-pain-yt",
+      "destination": "/back-pain-youtube.html"
+    },
+    {
+      "source": "/back-pain-ig",
+      "destination": "/back-pain-instagram.html"
+    },
+    {
+      "source": "/back-pain-email",
+      "destination": "/back-pain-email.html"
+    }
   ]
 }

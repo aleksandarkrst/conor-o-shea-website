@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rehab Your Back | Conor O'Shea Fitness</title>
+<meta name="description" content="Fix your back pain and get back to what you love in under 4 months. Guaranteed, or your money back.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #0f0e0d;
+    --panel: #171513;
+    --ink: #f3efe8;
+    --muted: #b7afa4;
+    --accent: #d1602e;
+    --accent-hi: #e2703c;
+    --rule: rgba(243, 239, 232, 0.12);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--paper); color: var(--ink); font-family: Barlow, -apple-system, "Helvetica Neue", Arial, sans-serif; font-size: 18px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; }
+  img { max-width: 100%; display: block; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 20px; }
+  .wrap-wide { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+
+  /* NAV */
+  .nav { position: sticky; top: 12px; z-index: 50; max-width: 760px; margin: 12px auto 0; padding: 0 16px; }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 12px; background: rgba(23, 21, 19, 0.92); backdrop-filter: blur(10px); border: 1px solid var(--rule); border-radius: 999px; padding: 8px 8px 8px 20px; }
+  .brand { font-family: "Barlow Condensed", sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; text-decoration: none; font-size: 17px; white-space: nowrap; }
+  .brand span { color: var(--muted); font-weight: 500; }
+
+  /* BUTTONS */
+  .btn { display: inline-block; background: var(--accent); color: #fff; font-family: "Barlow Condensed", sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; text-decoration: none; border-radius: 999px; padding: 18px 36px; font-size: 20px; transition: background 0.15s, transform 0.15s; text-align: center; }
+  .btn:hover { background: var(--accent-hi); transform: translateY(-1px); }
+  .btn-sm { padding: 10px 20px; font-size: 15px; }
+
+  /* HERO */
+  .hero { text-align: center; padding: 56px 0 40px; }
+  .eyebrow { display: inline-flex; align-items: center; gap: 8px; font-family: "Barlow Condensed", sans-serif; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; font-size: 14px; color: var(--muted); margin-bottom: 20px; }
+  .eyebrow::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
+  h1 { font-family: Anton, sans-serif; font-weight: 400; text-transform: uppercase; font-size: clamp(36px, 7vw, 64px); line-height: 1.04; letter-spacing: 0.01em; margin-bottom: 22px; }
+  h1 em, h2 em { font-style: normal; color: var(--accent); }
+  .lede { color: var(--muted); font-size: 19px; max-width: 620px; margin: 0 auto; }
+  .lede strong { color: var(--ink); font-weight: 600; }
+
+  .video { max-width: 900px; margin: 40px auto 0; padding: 0 20px; }
+  .video-frame { position: relative; aspect-ratio: 16 / 9; background: #000; border: 1px solid var(--rule); border-radius: 16px; overflow: hidden; }
+  .video-frame iframe, .video-frame video { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+  .video-placeholder { position: absolute; inset: 0; display: grid; place-items: center; color: var(--muted); font-family: "Barlow Condensed", sans-serif; text-transform: uppercase; letter-spacing: 0.08em; }
+
+  .cta-block { text-align: center; padding: 32px 0 0; }
+  .spots { margin-top: 12px; font-size: 14px; color: var(--muted); }
+
+  /* SECTIONS */
+  section.block { padding: 72px 0; border-top: 1px solid var(--rule); }
+  .label { font-family: "Barlow Condensed", sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; font-size: 15px; color: var(--accent); margin-bottom: 14px; }
+  h2 { font-family: Anton, sans-serif; font-weight: 400; text-transform: uppercase; font-size: clamp(28px, 5vw, 42px); line-height: 1.1; margin-bottom: 28px; }
+  .prose p { margin-bottom: 20px; }
+  .prose p:last-child { margin-bottom: 0; }
+  .prose strong { color: var(--ink); }
+  .pull { font-family: "Barlow Condensed", sans-serif; font-weight: 600; font-size: 26px; line-height: 1.3; border-left: 3px solid var(--accent); padding-left: 20px; margin: 32px 0; }
+
+  /* WINS WALL */
+  .wins { padding: 64px 0 0; }
+  .wins-wall { columns: 3 260px; column-gap: 14px; max-height: 760px; overflow: hidden; -webkit-mask-image: linear-gradient(to bottom, #000 80%, transparent); mask-image: linear-gradient(to bottom, #000 80%, transparent); }
+  .wins-wall.open { max-height: none; -webkit-mask-image: none; mask-image: none; }
+  .wins-more { text-align: center; margin-top: 18px; }
+  .wins-more button { background: transparent; color: var(--ink); border: 1px solid var(--rule); border-radius: 999px; padding: 12px 26px; font-family: "Barlow Condensed", sans-serif; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; font-size: 15px; cursor: pointer; }
+  .wins-more button:hover { border-color: var(--accent); }
+  .win { break-inside: avoid; margin: 0 0 14px; background: var(--panel); border: 1px solid var(--rule); border-radius: 12px; overflow: hidden; }
+  .win figcaption { font-family: "Barlow Condensed", sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; font-size: 18px; line-height: 1.2; color: var(--ink); padding: 12px 14px 11px 34px; position: relative; }
+  .win figcaption::before { content: ""; position: absolute; left: 14px; top: 50%; margin-top: -5px; width: 10px; height: 10px; border-radius: 50%; background: var(--accent); }
+  .win figcaption { background: var(--panel); }
+  .win img { width: 100%; height: auto; flex: none; border-top: 2px solid var(--accent); }
+  @media (max-width: 560px) { .wins-wall { max-height: 640px; } }
+
+  /* REVIEWS */
+  .reviews { columns: 2 320px; column-gap: 18px; }
+  .review { break-inside: avoid; margin: 0 0 18px; background: var(--panel); border: 1px solid var(--rule); border-radius: 14px; padding: 24px; }
+  .review-stars { color: #f5b301; letter-spacing: 2px; font-size: 18px; }
+  .review h3 { font-family: "Barlow Condensed", sans-serif; font-weight: 700; text-transform: uppercase; font-size: 22px; line-height: 1.2; margin: 8px 0 10px; }
+  .review p { color: var(--muted); font-size: 16px; }
+  .review-meta { margin-top: 14px; font-size: 14px; color: var(--muted); }
+  .review-meta strong { color: var(--ink); }
+  .reviews-link { text-align: center; margin-top: 8px; }
+  .reviews-link a { color: var(--ink); font-weight: 600; }
+
+  /* STATBAR / FAQ / STEPS */
+  .statbar { display: flex; justify-content: center; gap: 28px; flex-wrap: wrap; margin-top: 28px; }
+  .statbar div { display: flex; flex-direction: column; align-items: center; }
+  .statbar strong { font-family: Anton, sans-serif; font-weight: 400; font-size: 32px; color: var(--accent); line-height: 1; }
+  .statbar span { font-size: 13px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 4px; }
+  .faq details { border-bottom: 1px solid var(--rule); padding: 18px 0; }
+  .faq summary { cursor: pointer; font-weight: 600; font-size: 18px; list-style: none; position: relative; padding-right: 30px; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: "+"; position: absolute; right: 0; top: -2px; color: var(--accent); font-size: 24px; }
+  .faq details[open] summary::after { content: "−"; }
+  .faq details p { color: var(--muted); margin-top: 10px; }
+  .steps { text-align: left; max-width: 560px; margin: 0 auto 32px; padding-left: 22px; color: var(--muted); }
+  .steps li { margin-bottom: 10px; }
+  .steps strong { color: var(--ink); }
+
+  /* PILL + MODAL */
+  .pill { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--rule); border-radius: 999px; padding: 6px 14px; font-size: 14px; color: var(--muted); margin: 0 0 18px; }
+  .pill span { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
+  .btn-xl { display: block; max-width: 900px; margin: 0 auto; font-size: 26px; padding: 22px 36px; }
+
+  .booking { padding: 48px 20px 16px; }
+  .booking-inner { max-width: 900px; margin: 0 auto; text-align: center; }
+  .booking .pill { margin-bottom: 24px; }
+  .booking-title { font-size: clamp(32px, 6vw, 60px); margin-bottom: 32px; }
+  .booking .aura-scheduler-embed { min-height: 605px; }
+
+  .yt { position: relative; aspect-ratio: 16 / 9; background: #000; }
+  .yt iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+  .eyebrow-lg { font-size: 19px; color: var(--ink); margin-bottom: 22px; }
+  @media (max-width: 560px) { .eyebrow-lg { font-size: 16px; } }
+
+  .sent-banner { max-width: 760px; margin: 20px auto 0; padding: 16px 20px; display: flex; gap: 14px; align-items: flex-start; background: var(--panel); border: 1px solid var(--accent); border-radius: 14px; font-size: 16px; color: var(--muted); }
+  .sent-banner strong { color: var(--ink); }
+  .sent-check { flex: none; width: 28px; height: 28px; border-radius: 50%; background: var(--accent); color: #fff; display: grid; place-items: center; font-weight: 700; }
+  @media (max-width: 560px) { .sent-banner { margin: 16px 16px 0; } }
+
+  /* PHASES */
+  .phases { display: grid; gap: 16px; margin-top: 8px; }
+  .phase { background: var(--panel); border: 1px solid var(--rule); border-radius: 14px; padding: 26px; }
+  .phase-num { font-family: Anton, sans-serif; color: var(--accent); font-size: 15px; letter-spacing: 0.08em; text-transform: uppercase; }
+  .phase h3 { font-family: Anton, sans-serif; font-weight: 400; text-transform: uppercase; font-size: 30px; margin: 4px 0 10px; }
+  .phase p { color: var(--muted); }
+
+  .list { list-style: none; margin-top: 8px; }
+  .list li { position: relative; padding: 14px 0 14px 32px; border-bottom: 1px solid var(--rule); }
+  .list li:last-child { border-bottom: 0; }
+  .list li::before { content: ""; position: absolute; left: 4px; top: 24px; width: 10px; height: 10px; border-radius: 2px; background: var(--accent); }
+  .list.no li::before { background: transparent; border: 2px solid var(--muted); }
+
+  /* PROOF */
+  .proof-grid { display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+  .proof { background: var(--panel); border: 1px solid var(--rule); border-radius: 14px; overflow: hidden; display: flex; flex-direction: column; }
+  .proof img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; object-position: top; background: #222; }
+  .proof-body { padding: 22px; }
+  .proof-tag { font-family: "Barlow Condensed", sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--accent); font-size: 15px; }
+  .proof h3 { font-family: Anton, sans-serif; font-weight: 400; text-transform: uppercase; font-size: 26px; margin: 2px 0 8px; }
+  .proof p { color: var(--muted); font-size: 16px; }
+  .proof a.watch { display: inline-block; margin-top: 12px; color: var(--ink); font-weight: 600; font-size: 15px; }
+
+  /* GUARANTEE */
+  .guarantee { background: var(--panel); border: 1px solid var(--accent); border-radius: 18px; padding: 40px 32px; text-align: center; }
+  .guarantee h2 { margin-bottom: 18px; }
+  .guarantee .prose { text-align: left; max-width: 560px; margin: 0 auto; }
+
+  /* BOOKING */
+  .aura-scheduler-embed { min-height: 640px; text-align: left; }
+
+  footer { border-top: 1px solid var(--rule); padding: 32px 0 48px; color: var(--muted); font-size: 13px; }
+  footer .links { display: flex; flex-wrap: wrap; gap: 18px; margin: 10px 0 20px; }
+  footer .links a { text-decoration: none; text-transform: uppercase; letter-spacing: 0.06em; font-size: 12px; }
+  footer .disclaimer { font-size: 12px; line-height: 1.5; opacity: 0.75; }
+
+  @media (max-width: 560px) {
+    body { font-size: 17px; }
+    .brand span { display: none; }
+    .btn { width: 100%; padding: 17px 20px; }
+    .btn-sm { width: auto; }
+    .hero { padding-top: 40px; }
+    .guarantee { padding: 30px 20px; }
+    section.block { padding: 56px 0; }
+  }
+</style>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  analytics_storage: /(?:^|; )cof_consent=granted/.test(document.cookie) ? 'granted' : 'denied',
+  ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied',
+  wait_for_update: 500
+});
+gtag('js', new Date());
+gtag('config', 'G-NEXS6YMK7H');
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NEXS6YMK7H"></script>
+<script type="text/javascript" id="hs-script-loader" async defer src="//js-eu1.hs-scripts.com/148058133.js"></script>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <span class="brand">Conor O'Shea <span>/ Low Back Rehab</span></span>
+    <a href="#book" class="btn btn-sm">Book a Call</a>
+  </div>
+</nav>
+
+<main>
+
+<!-- HERO -->
+<div class="sent-banner" id="sentBanner" hidden>
+  <span class="sent-check">&#10003;</span>
+  <div><strong>Your low back assessment report is being sent to you now.</strong><br>While it lands in your inbox, watch this. It explains what's keeping your back stuck and how we fix it.</div>
+</div>
+
+<header class="hero wrap">
+  <p class="eyebrow eyebrow-lg">Low back pain that physio and chiro haven't fixed?</p>
+  <h1>Fix your back pain and get back to what you love in under 4 months. <em>Guaranteed, or your money back.</em></h1>
+  <div class="statbar">
+    <div><strong>500+</strong><span>clients coached</span></div>
+    <div><strong>5.0</strong><span>rating on Google</span></div>
+    <div><strong>15 yrs</strong><span>coaching since 2011</span></div>
+  </div>
+</header>
+
+<div class="video">
+  <div class="video-frame">
+    <!-- VSL: Vimeo 1232091553, embed-only, locked to conorosheafitness.com -->
+    <iframe src="https://player.vimeo.com/video/1232091553?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;color=d1602e&amp;autopause=0&amp;dnt=1" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" referrerpolicy="strict-origin-when-cross-origin" title="Conor O'Shea: why your back pain keeps coming back"></iframe>
+  </div>
+</div>
+
+<!-- BOOKING (VOICs layout) -->
+<section class="booking" id="book">
+  <div class="booking-inner">
+    <p class="pill"><span></span>Limited spots available</p>
+    <h2 class="booking-title">Book Your Assessment Call</h2>
+    <div class="aura-scheduler-embed" data-aura-scheduler="" data-url="https://app.aura-app.ai/conor-o-shea-fitness-ltd/assessment-yt?theme_preset=dark" data-mode="inline"></div>
+  </div>
+</section>
+
+
+<!-- REVIEWS -->
+<section class="block">
+  <div class="wrap-wide">
+    <p class="label">Reviews on Google</p>
+    <h2>Rated 5.0 <em>on Google.</em></h2>
+    <div class="reviews">
+      <article class="review">
+        <div class="review-stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <h3>Years of back pain. Real relief in 3 days.</h3>
+        <p>"I&#x27;ve been dealing with lower back pain for years and have tried pretty much everything, from physiotherapy and osteopathy to countless exercises I found online. ... What really stood out was identifying which exercises actually work for me, correcting the small details I was getting wrong ... After just three days of doing the exercises, I&#x27;m already noticing a significant amount of relief and less strain on my lower back. I honestly haven&#x27;t experienced this kind of change with anything else I&#x27;ve tried over the years."</p>
+        <div class="review-meta"><strong>Christian Strunk</strong> · Review on Google</div>
+      </article>
+      <article class="review">
+        <div class="review-stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <h3>From &quot;the person with a bad back&quot; to the Fan Dance</h3>
+        <p>"I came to Conor with a chronic injury I thought was going to be with me forever and had assumed the identity of the person who &quot;has a bad back&quot;. ... 12 months down the line, I&#x27;ve recently completed an arduous SAS test march known as the &quot;Fan Dance&quot;, 15 miles carrying 44lbs ... If you&#x27;re someone with a chronic injury, who has &quot;tried everything&quot; and resigned themselves to the scrap heap, I give my wholehearted recommendation."</p>
+        <div class="review-meta"><strong>Craig Finn</strong> · Review on Google</div>
+      </article>
+      <article class="review">
+        <div class="review-stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <h3>Fully back to training 4 months after surgery</h3>
+        <p>"After months of rehab without a clear structure or process, I was looking for a coach who could help me build a proper path back to sport. ... What was supposed to be a 20-minute call turned into a 50-minute conversation about me, my injury, my goals and how he could actually help. ... After almost 12 months away from sport and only four months after surgery, I&#x27;m now fully back to training and improving week after week."</p>
+        <div class="review-meta"><strong>Edoardo Bianca</strong> · Review on Google</div>
+      </article>
+      <article class="review">
+        <div class="review-stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <h3>My back pain is gone</h3>
+        <p>"Before joining, I was unsure about the cost and whether I could stay consistent. The coaching helped by creating a realistic plan that worked for my life. I can now squat deeper, sit on my heels, and my back pain is gone. I&#x27;ve also noticed how much more confident I feel moving again."</p>
+        <div class="review-meta"><strong>Kellie Johnson</strong> · Review on Google</div>
+      </article>
+      <article class="review">
+        <div class="review-stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <h3>Over a year with no injury downtime</h3>
+        <p>"I have worked with coaches before but my time in the gym usually ended with injuries small or large that set me back or stopped my progress. ... Instead, I&#x27;ve been in Conor&#x27;s program over a year and have had steady gains with no down-time for injuries. ... I definitely recommend Conor&#x27;s program if you want to get strong, more mobile, and rehab injuries."</p>
+        <div class="review-meta"><strong>T Ray Humphrey</strong> · Review on Google</div>
+      </article>
+      <article class="review">
+        <div class="review-stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <h3>Morning lower back aches gone</h3>
+        <p>"His suggestions for a morning routine for overall body warming up and engagement is now a must do part of my daily practice and has helped to alleviate my morning lower back aches and stiffness. Super helpful in his personal feedback as well."</p>
+        <div class="review-meta"><strong>Steven Wong</strong> · Review on Google</div>
+      </article>
+    </div>
+    <p class="reviews-link"><span style="font-size:13px;color:var(--muted)">Rating as of October 2026</span></p>
+  </div>
+</section>
+
+<!-- WINS WALL -->
+<section class="wins">
+  <div class="wrap-wide">
+    <p class="label" style="text-align:center">Real Client Results</p>
+    <h2 style="text-align:center">Their backs <em>don't lie.</em></h2>
+    <p class="lede" style="text-align:center;margin:-12px auto 32px">Real messages from clients inside the program.</p>
+    <div class="wins-wall" id="winsWall">
+      <figure class="win"><figcaption>No back pain any more. Full squat.</figcaption><img src="images/wins/client_no-back-pain-any-more-full-squat.png" alt="Client message: no back pain any more, full squat" loading="lazy"></figure>
+      <figure class="win"><figcaption>Carrying her daughter without back pain</figcaption><img src="images/wins/sarah_carrying-daughter-no-back-pain.jpg" alt="Client message: carrying my daughter for longer without back pain" loading="lazy"></figure>
+      <figure class="win"><figcaption>Lower back pinch gone</figcaption><img src="images/wins/anna-norton_lower-back-pinch-gone.png" alt="Client message: lower back pinch gone" loading="lazy"></figure>
+      <figure class="win"><figcaption>New training block, no flare-up</figcaption><img src="images/wins/jacob-blake_new-block-no-major-flare.png" alt="Client message: new training block, no major flare" loading="lazy"></figure>
+      <figure class="win"><figcaption>Pain at zero. First muscle up.</figcaption><img src="images/wins/tre-thomas_pain-at-zero-first-muscle-up.png" alt="Client message: pain at zero, first muscle up" loading="lazy"></figure>
+      <figure class="win"><figcaption>3 miles, back not hurting</figcaption><img src="images/wins/jeremy-cadiz_3-miles-back-not-hurting.png" alt="Client message: 3 miles, back not hurting" loading="lazy"></figure>
+      <figure class="win"><figcaption>"A transformative effect on my life"</figcaption><img src="images/wins/robin_transformative-effect-on-my-life.png" alt="Client message: an absolutely transformative effect on my life" loading="lazy"></figure>
+      <figure class="win"><figcaption>90 min of basketball, no pain</figcaption><img src="images/wins/marius-van-niekerk_90min-basketball-no-pain.png" alt="Client message: 90 minutes of basketball, no pain" loading="lazy"></figure>
+      <figure class="win"><figcaption>Hard physical work, no back complaints</figcaption><img src="images/wins/craig-finn_hard-physical-task-no-back-complaint.png" alt="Client message: hard physical task, no back complaint" loading="lazy"></figure>
+      <figure class="win"><figcaption>Fast bike ride, no back pain</figcaption><img src="images/wins/mike-rinard_fast-bike-ride-no-back-pain.png" alt="Client message: fast bike ride, no back pain" loading="lazy"></figure>
+      <figure class="win"><figcaption>Travel weekend, no pain spike</figcaption><img src="images/wins/jp-harkin_travel-weekend-no-pain-spike.png" alt="Client message: travel weekend, no pain spike" loading="lazy"></figure>
+      <figure class="win"><figcaption>"Delivered on all the promises"</figcaption><img src="images/wins/richard-parsons_farewell-delivered-every-promise.png" alt="Client message: delivered on all the promises" loading="lazy"></figure>
+      <figure class="win"><figcaption>Hard workout, no pain</figcaption><img src="images/wins/gabriel-hannans_vigorous-workout-no-pain.png" alt="Client message: vigorous workout, no pain" loading="lazy"></figure>
+      <figure class="win"><figcaption>Sub 5hr Fan Dance endurance race</figcaption><img src="images/wins/craig-finn_sub-5hr-fan-dance.png" alt="Client message: sub 5 hour Fan Dance" loading="lazy"></figure>
+      <figure class="win"><figcaption>Steep downhill run, no tweak</figcaption><img src="images/wins/mike-rinard_steep-downhill-run-no-tweak.png" alt="Client message: steep downhill run, no tweak" loading="lazy"></figure>
+      <figure class="win"><figcaption>Keeping up with the grandkids</figcaption><img src="images/wins/linda-koppenhaver_keeping-up-with-grandkids.png" alt="Client message: keeping up with the grandkids" loading="lazy"></figure>
+      <figure class="win"><figcaption>Hours of table tennis, no flare</figcaption><img src="images/wins/tre-thomas_table-tennis-hours-no-flare.png" alt="Client message: hours of table tennis, no flare" loading="lazy"></figure>
+      <figure class="win"><figcaption>Full workout without pain</figcaption><img src="images/wins/kellie-johnson_workout-without-pain.png" alt="Client message: workout without pain" loading="lazy"></figure>
+      <figure class="win"><figcaption>"Meets you where you are"</figcaption><img src="images/wins/theresa-panchura_compass-meets-you-where-you-are.png" alt="Client message: the program meets you where you are" loading="lazy"></figure>
+      <figure class="win"><figcaption>Confident in demanding physical work</figcaption><img src="images/wins/alex-mason_demanding-work-confidence.png" alt="Client message: confidence in demanding work" loading="lazy"></figure>
+      <figure class="win"><figcaption>"Night and day" difference</figcaption><img src="images/wins/mike-rinard_slackline-night-and-day.png" alt="Client message: slackline, night and day" loading="lazy"></figure>
+      <figure class="win"><figcaption>More flexible, less pain</figcaption><img src="images/wins/stuart-carrick_more-flexible-less-pain.png" alt="Client message: more flexible, less pain" loading="lazy"></figure>
+      <figure class="win"><figcaption>Reversed years of decline</figcaption><img src="images/wins/craig-finn_reversed-years-of-decline.png" alt="Client message: reversed years of decline" loading="lazy"></figure>
+      <figure class="win"><figcaption>16 strict chin-ups</figcaption><img src="images/wins/craig-finn_16-strict-chin-ups.png" alt="Client message: 16 strict chin ups" loading="lazy"></figure>
+      <figure class="win"><figcaption>Multi-day bike trip, no back issues</figcaption><img src="images/wins/mike-rinard_lake-constance-bike-trip-no-back-issues.png" alt="Client message: Lake Constance bike trip, no back issues" loading="lazy"></figure>
+      <figure class="win"><figcaption>Running and touching his toes again</figcaption><img src="images/wins/kevin-mattushek_running-touching-toes.png" alt="Client message: running and touching toes" loading="lazy"></figure>
+    </div>
+    <div class="wins-more"><button type="button" id="winsMore">See more wins</button></div>
+    <div class="cta-block"><a href="#book" class="btn">Book Your Assessment Call</a></div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="block" style="margin-top:64px">
+  <div class="wrap prose">
+    <p class="label">The Problem</p>
+    <h2>It's not that you haven't tried. <em>It's that nobody gave you a plan.</em></h2>
+    <p>You've had the scan. L5/S1, or something close to it. You've seen the doctor, the chiro, the physio. You did what they told you.</p>
+    <p>But the flare-ups keep coming back. Some days you just push through work. And every time you try to get back to the gym, or just back to normal life, it goes again.</p>
+    <p>So you went looking for answers yourself. Hundreds of saved Reels. Your whole history typed into ChatGPT. Now you've got a phone full of exercises and no way to know which ones help, which ones make it worse, and which ones just aren't for you.</p>
+    <p class="pull">Trying harder doesn't rehab your back. A clear plan built for your life does.</p>
+    <p>Somewhere along the way, someone told you that you've got the spine of a 70 year old and you need to be careful. So you've avoided the exact movements your back needs to get strong again. You've started organising your life around protecting it.</p>
+    <p>And every time you restart, you flare up, because you've never actually built a proper foundation. Each flare-up brings more fear. And underneath it is the worry that this is just what your body is now.</p>
+    <p><strong>It isn't. It's one problem, and it's fixable.</strong></p>
+  </div>
+</section>
+
+<!-- ORIGIN -->
+<section class="block">
+  <div class="wrap prose">
+    <p class="label">Who I Am</p>
+    <h2>My doctor told me I'd <em>never squat again.</em></h2>
+    <p>My name's Conor O'Shea. In 2018 I damaged my L5-S1 doing a back bend with a 6am client. I was 28, a personal trainer, and it felt like someone had cancelled my entire future.</p>
+    <p>It took me four years to understand what was wrong and fix it, because everyone I saw treated the symptom and never once asked why it kept coming back.</p>
+    <p>Since then I've worked with over 500 clients in exactly the spot you're in. People who trained hard and did everything right on paper, but stayed stuck.</p>
+  </div>
+</section>
+
+<!-- WHY DIFFERENT -->
+<section class="block">
+  <div class="wrap prose">
+    <p class="label">Why This Is Different</p>
+    <h2>You don't need more exercises. <em>You need the right ones, in the right order.</em></h2>
+    <p><strong>Physio</strong> gets you out of the acute pain, then discharges you before you've built anything. <strong>Chiro and massage</strong> feel great for a day. <strong>Apps and YouTube</strong> give you a program written for nobody in particular.</p>
+    <p>None of them look at your scan, your history, your job and your training together, and none of them stay with you through the flare-up that sends most people back to square one.</p>
+    <p>That's the gap we fill. A plan built for you, adjusted every week, with a coach in your corner the whole way.</p>
+  </div>
+</section>
+
+<!-- SYSTEM -->
+<section class="block">
+  <div class="wrap">
+    <p class="label">How It Works</p>
+    <h2>The ACT model. <em>Three phases, built for you.</em></h2>
+    <div class="prose" style="margin-bottom:28px">
+      <p>We don't sell a template program. We don't sell an AI generated workout. This is individualised 1:1 coaching, and it runs in three phases.</p>
+    </div>
+    <div class="phases">
+      <div class="phase">
+        <span class="phase-num">Phase 01</span>
+        <h3>Assess</h3>
+        <p>A full assessment to work out exactly where your limitations and weaknesses are coming from. This is how you start training safely and consistently again, and it's what drives the knock-on improvements in movement, sleep, energy and mood.</p>
+      </div>
+      <div class="phase">
+        <span class="phase-num">Phase 02</span>
+        <h3>Capacity</h3>
+        <p>With a solid foundation in place, we build your tolerance back up on top of it, safely. No more flare-ups pulling you backwards. More intensity in the gym. Less fear about your back.</p>
+      </div>
+      <div class="phase">
+        <span class="phase-num">Phase 03</span>
+        <h3>Thrive</h3>
+        <p>We build you back to the activities you've missed. Picking up your kid without bracing for it. Travel, work, commuting, all back to normal. And we teach you how to maintain it, so you keep progressing.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INCLUDED -->
+<section class="block">
+  <div class="wrap">
+    <p class="label">What's Included</p>
+    <h2>You're not handed a plan. <em>It's built with you.</em></h2>
+    <ul class="list">
+      <li><strong>A full assessment</strong> of your history, scan and movement before a single exercise is prescribed.</li>
+      <li><strong>Your own program</strong>, progressed every week based on how your back is actually responding.</li>
+      <li><strong>Daily coaching</strong> so you know what to do, when to do it, and how to do it.</li>
+      <li><strong>1:1 support throughout</strong>, including what to do when a flare-up happens, so it doesn't send you back to square one.</li>
+      <li><strong>A plan that fits your life</strong>: 3 to 4 sessions a week of 30 to 40 minutes, at home or in the gym, built around your work and family.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- PROOF -->
+<section class="block">
+  <div class="wrap-wide">
+    <p class="label">Client Stories</p>
+    <h2>Stuck with back pain for years. <em>Not anymore.</em></h2>
+    <div class="proof-grid">
+      <article class="proof">
+        <div class="yt"><iframe src="https://www.youtube-nocookie.com/embed/-ZcjYUA3C6Q?rel=0&amp;modestbranding=1" title="Craig, 55" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+        <div class="proof-body">
+          <span class="proof-tag">4.5 years of pain → SAS Fan Dance</span>
+          <h3>Craig, 55</h3>
+          <p>Fully rehabbed in 10 weeks, then 15 miles carrying 44lbs over the highest mountain in South Wales.</p>
+        </div>
+      </article>
+      <article class="proof">
+        <div class="yt"><iframe src="https://www.youtube-nocookie.com/embed/u12Xh9KRn4I?rel=0&amp;modestbranding=1" title="Niall, 31" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+        <div class="proof-body">
+          <span class="proof-tag">Chronic pain → pain free in 12 weeks</span>
+          <h3>Niall, 31</h3>
+          <p>Over two years of pain and off work. Built his deadlift to double bodyweight and is back running.</p>
+        </div>
+      </article>
+      <article class="proof">
+        <div class="yt"><iframe src="https://www.youtube-nocookie.com/embed/uSyYG09KcvM?rel=0&amp;modestbranding=1" title="Daniel" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+        <div class="proof-body">
+          <span class="proof-tag">Back to a physical job, with confidence</span>
+          <h3>Daniel</h3>
+          <p>Built the strength and confidence to do the job his back had been stopping him from doing.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- NOT FOR -->
+<section class="block">
+  <div class="wrap">
+    <p class="label">Who This Is Not For</p>
+    <h2>We only take on people <em>we know we can help.</em></h2>
+    <ul class="list no">
+      <li>If you want a quick fix or a single exercise to make it go away, this isn't it. You'll get more from a free YouTube video.</li>
+      <li>If you want someone to do it for you, this isn't that. It's coached daily, but it needs your effort every week.</li>
+      <li>If you need surgery or a medical diagnosis, that's your doctor's job. We'll tell you on the call if that's where you are.</li>
+      <li>This is a 4 month commitment and it isn't cheap. That's deliberate.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- GUARANTEE -->
+<section class="block">
+  <div class="wrap">
+    <div class="guarantee">
+      <p class="label">Our Guarantee</p>
+      <h2>Back to what matters to you in 4 months, <em>or you don't pay.</em></h2>
+      <div class="prose">
+        <p>We can say that because the conditions that produce the result are the work itself.</p>
+        <p>We coach you daily. We give you the right program and progress it every week. You get 1:1 help throughout. <strong>Show up, do the sessions, follow the plan.</strong></p>
+        <p>Do that, and if you don't get the result within 4 months, we refund the entire program.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="block">
+  <div class="wrap">
+    <p class="label">Questions</p>
+    <h2>What people ask <em>before they book.</em></h2>
+    <div class="faq">
+      <details><summary>I've tried physio, chiro and online programs. Why would this be different?</summary><p>Most of our clients had tried 3 to 5 things before us. Those approaches treat the symptom or hand you a generic plan. We assess why your back keeps flaring up, build the foundation first, then progress you week by week and adjust when life gets in the way.</p></details>
+      <details><summary>What if I flare up during the program?</summary><p>Flare-ups happen, and they're not a sign it isn't working. You message your coach, we adjust your plan that day, and you keep moving forward instead of starting again from scratch.</p></details>
+      <details><summary>How much time does it take?</summary><p>3 to 4 sessions a week, usually 30 to 40 minutes. We start lower than you'd expect and build up, which is what stops the push-too-hard, flare-up, restart cycle.</p></details>
+      <details><summary>Do I need a gym?</summary><p>No. We build the plan around what you have. Plenty of clients start at home with minimal equipment and add the gym back in later.</p></details>
+      <details><summary>I've had a scan showing a disc bulge or herniation. Can you still help?</summary><p>Yes. Most of our clients come in with a disc injury, often L4/L5 or L5/S1. We work alongside your doctor, not instead of them. If anything on the call suggests you need medical care first, we'll tell you.</p></details>
+      <details><summary>It's online. How do you coach me properly?</summary><p>You film key sessions, your coach reviews your form, and you get feedback and a progressed plan every week. You also get direct messaging with your coach, so you're never guessing.</p></details>
+      <details><summary>How much does it cost?</summary><p>It depends on the level of support you need. We'll go through the options on the call, once we know whether we can actually help you.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="block" style="text-align:center">
+  <div class="wrap">
+    <h2>Ready to find out <em>what's been missed?</em></h2>
+    <a href="#book" class="btn">Book Your Assessment Call</a>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Conor O'Shea Fitness Ltd.</span>
+    <p class="disclaimer">This site is not part of or endorsed by Meta or Facebook. The information on this page is for educational purposes and is not medical advice. Results vary and depend on your history, condition and effort. Client stories are real and shared with permission, but are not a promise of a specific outcome. Guarantee terms are confirmed in writing before you start.</p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('winsMore').addEventListener('click', function () {
+    var wall = document.getElementById('winsWall');
+    var open = wall.classList.toggle('open');
+    this.textContent = open ? 'Show less' : 'See more wins';
+  });
+</script>
+<script src="https://app.aura-app.ai/embed/aura.js" defer></script>
+<script>
+  (function () {
+    if (!/[?&]sent=1/.test(location.search)) return;
+    document.getElementById('sentBanner').hidden = false;
+    var v = document.querySelector('.video iframe');
+    if (v) v.src += '&autoplay=1&muted=1';
+  })();
+</script>
+<script src="tracking.js" defer></script>
+</body>
+</html>
