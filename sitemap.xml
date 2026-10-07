@@ -15,7 +15,7 @@
   </url>
   <url>
     <loc>https://conorosheafitness.com/articles.html</loc>
-    <lastmod>2026-10-02</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -94,6 +94,12 @@
   <url>
     <loc>https://conorosheafitness.com/articles/new-low-back-assessment-inside.html</loc>
     <lastmod>2026-07-31</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://conorosheafitness.com/articles/two-new-weekly-coaching-calls-starting.html</loc>
+    <lastmod>2026-10-07</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
