@@ -11,7 +11,7 @@
  *  2. This file reads the stored choice from a cookie on
  *     .conorosheafitness.com (shared by the main site and the assessment).
  *     No choice yet: show the banner. Choice made: apply it silently.
- *  3. Clicks on the main funnel CTAs are sent to GA4 as named events.
+ *  3. Clicks on main funnel CTAs and confirmed Aura bookings are sent to GA4.
  *
  * The consent cookie itself is strictly necessary (it remembers the
  * answer), so it is set without asking.
@@ -156,6 +156,13 @@
       transport_type: 'beacon'
     });
   }, true);
+
+  // Aura's embed dispatches this host event only after a confirmed booking.
+  // Do not forward booking details or attendee data to GA4.
+  window.addEventListener('aura:scheduler:booking_succeeded', function (e) {
+    if (!e.detail || e.detail.event !== 'booking_succeeded') return;
+    gtag('event', 'consultation_booked');
+  });
 
   // ---------- Start ----------
   function init() {
