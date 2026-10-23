@@ -1,10 +1,14 @@
 name: Sync Substack articles
 
 on:
-  schedule:
-    # Runs once a day. GitHub only fires scheduled workflows on the
-    # default branch, so this needs to live there to actually run.
-    - cron: "0 6 * * *"
+  # Scheduled runs are paused: both the direct Substack fetch and the
+  # rss2json.com/allorigins.win fallbacks are currently unreliable (403s
+  # and 522s), so the daily cron was just burning CI minutes on failures.
+  # Still runnable by hand from the Actions tab (or `gh workflow run`)
+  # once a working fetch path is confirmed. To resume the schedule,
+  # restore:
+  #   schedule:
+  #     - cron: "0 6 * * *"
   workflow_dispatch: {}
 
 permissions:
