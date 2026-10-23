@@ -9,7 +9,11 @@ Substack's edge blocks direct fetches from GitHub Actions' runner IPs
 request from CI regardless of headers). To work around that, a direct
 fetch is tried first and, on any failure, falls back to rss2json.com's
 public RSS-to-JSON proxy, which fetches the feed from its own
-infrastructure and hands back parsed JSON.
+infrastructure and hands back parsed JSON. If rss2json.com also fails
+(e.g. it starts rate-limiting or blocking unauthenticated/shared-IP
+requests, as it did from Oct 2026), a second fallback tries
+allorigins.win's raw passthrough proxy instead, which needs no API key
+and hands back the feed's original XML unmodified.
 
 The RSS feed's <content:encoded> field already carries each post's full
 HTML body, not just a summary - previously this was only used to compute
@@ -508,6 +512,30 @@ def fetch_via_rss2json(feed_url, attempts=3, backoff_seconds=3):
     return items
 
 
+def fetch_via_cors_proxy(feed_url, attempts=3, backoff_seconds=3):
+    """Fetch the feed through allorigins.win's raw passthrough proxy.
+
+    No API key required. allorigins fetches the URL from its own
+    infrastructure (like rss2json) and hands back the response body
+    unmodified, so the result is real feed XML and parse_rss_items
+    can be reused as-is.
+    """
+    url = "https://api.allorigins.win/raw?" + urllib.parse.urlencode({"url": feed_url})
+    req = urllib.request.Request(url, headers={"User-Agent": REQUEST_HEADERS["User-Agent"]})
+
+    last_error = None
+    for attempt in range(1, attempts + 1):
+        try:
+            with urllib.request.urlopen(req, timeout=30) as resp:
+                return resp.read()
+        except (urllib.error.HTTPError, urllib.error.URLError) as e:
+            last_error = e
+            print(f"allorigins attempt {attempt}/{attempts} failed: {e}", file=sys.stderr)
+            if attempt < attempts:
+                time.sleep(backoff_seconds * attempt)
+    raise last_error
+
+
 def fetch_items(feed_url):
     try:
         xml_bytes = fetch_direct(feed_url)
@@ -518,7 +546,18 @@ def fetch_items(feed_url):
             "falling back to the rss2json.com proxy.",
             file=sys.stderr,
         )
+
+    try:
         return fetch_via_rss2json(feed_url)
+    except Exception as e:
+        print(
+            f"rss2json.com proxy failed ({e}); falling back to the "
+            "allorigins.win proxy.",
+            file=sys.stderr,
+        )
+
+    xml_bytes = fetch_via_cors_proxy(feed_url)
+    return parse_rss_items(xml_bytes)
 
 
 def bump_date_modified(page, today):
