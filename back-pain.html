@@ -117,7 +117,14 @@
 
   .yt { position: relative; aspect-ratio: 16 / 9; background: #000; }
   .yt iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
-  .reel-grid { display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); margin-top: 20px; }
+  .reel-grid { display: grid; gap: 20px; grid-template-columns: repeat(6, 1fr); margin-top: 20px; }
+  .reel-grid .proof { grid-column: span 2; }
+  .reel-grid .proof:nth-child(4) { grid-column: 2 / span 2; }
+  @media (max-width: 760px) {
+    .reel-grid { grid-template-columns: repeat(2, 1fr); }
+    .reel-grid .proof, .reel-grid .proof:nth-child(4) { grid-column: auto; }
+    .reel-grid .proof:nth-child(5) { grid-column: 1 / -1; max-width: 50%; justify-self: center; }
+  }
   .reel-grid .proof video { display: block; width: 100%; aspect-ratio: 9 / 16; object-fit: cover; background: #000; }
   .reel-grid .proof-body { padding: 18px; }
   .reel-grid .proof h3 { font-size: 22px; }
