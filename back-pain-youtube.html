@@ -115,8 +115,6 @@
   .booking-title { font-size: clamp(32px, 6vw, 60px); margin-bottom: 32px; }
   .booking .aura-scheduler-embed { min-height: 605px; }
 
-  .yt { position: relative; aspect-ratio: 16 / 9; background: #000; }
-  .yt iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
   .reel-grid { display: grid; gap: 20px; grid-template-columns: repeat(6, 1fr); margin-top: 20px; }
   .reel-grid .proof { grid-column: span 2; }
   .reel-grid .proof:nth-child(4) { grid-column: 2 / span 2; }
@@ -152,7 +150,6 @@
   .list.no li::before { background: transparent; border: 2px solid var(--muted); }
 
   /* PROOF */
-  .proof-grid { display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
   .proof { background: var(--panel); border: 1px solid var(--rule); border-radius: 14px; overflow: hidden; display: flex; flex-direction: column; }
   .proof img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; object-position: top; background: #222; }
   .proof-body { padding: 22px; }
@@ -413,32 +410,6 @@ gtag('config', 'G-NEXS6YMK7H');
   <div class="wrap-wide">
     <p class="label">Client Stories</p>
     <h2>Stuck with back pain for years. <em>Not anymore.</em></h2>
-    <div class="proof-grid">
-      <article class="proof">
-        <div class="yt"><iframe src="https://www.youtube-nocookie.com/embed/-ZcjYUA3C6Q?rel=0&amp;modestbranding=1" title="Craig, 55" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
-        <div class="proof-body">
-          <span class="proof-tag">4.5 years of pain → SAS Fan Dance</span>
-          <h3>Craig, 55</h3>
-          <p>Fully rehabbed in 10 weeks, then 15 miles carrying 44lbs over the highest mountain in South Wales.</p>
-        </div>
-      </article>
-      <article class="proof">
-        <div class="yt"><iframe src="https://www.youtube-nocookie.com/embed/u12Xh9KRn4I?rel=0&amp;modestbranding=1" title="Niall, 31" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
-        <div class="proof-body">
-          <span class="proof-tag">Chronic pain → pain free in 12 weeks</span>
-          <h3>Niall, 31</h3>
-          <p>Over two years of pain and off work. Built his deadlift to double bodyweight and is back running.</p>
-        </div>
-      </article>
-      <article class="proof">
-        <div class="yt"><iframe src="https://www.youtube-nocookie.com/embed/uSyYG09KcvM?rel=0&amp;modestbranding=1" title="Daniel" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
-        <div class="proof-body">
-          <span class="proof-tag">Back to a physical job, with confidence</span>
-          <h3>Daniel</h3>
-          <p>Built the strength and confidence to do the job his back had been stopping him from doing.</p>
-        </div>
-      </article>
-    </div>
     <div class="reel-grid">
       <article class="proof">
         <video controls playsinline preload="none" poster="videos/off-painkillers.jpg"><source src="videos/off-painkillers.mp4" type="video/mp4"></video>
